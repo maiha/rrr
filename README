@@ -1,0 +1,35 @@
+RRR
+===
+A ruby library for Ruby programming with RR that allows method overload.
+
+
+Methods
+=======
+
+This provides new 'cm' and 'im' class methods to Object class
+
+* Object.cm(&block)
+    adds class methods
+
+* Object.im(&block)
+    adds instance methods
+
+
+Example
+=======
+
+  require 'rrr'
+
+  class Foo
+    cm do
+      foo('x') {"called with 'x'"}
+      foo(numeric) {|n| "called numeric(#{n})" }
+    end
+  end
+
+  Foo.foo('x')  # => "called with 'x'"
+  Foo.foo(1)    # => "called numeric(1)"
+  Foo.foo       # RR::Errors::DoubleNotFoundError
+
+
+Copyright (c) 2009 maiha@wota.jp, released under the MIT license
