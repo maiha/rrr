@@ -6,7 +6,7 @@ AUTHOR = "maiha"
 EMAIL = "maiha@wota.jp"
 HOMEPAGE = "http://github.com/maiha/rrr"
 SUMMARY = "A ruby library for Ruby programming with RR that allows method overload"
-GEM_VERSION = "0.1.1"
+GEM_VERSION = "0.1.2"
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'asakusa'
@@ -21,6 +21,7 @@ spec = Gem::Specification.new do |s|
   s.email = EMAIL
   s.homepage = HOMEPAGE
   s.add_dependency('rr', '>= 0.10.4')
+  s.add_dependency('blankslate', '>= 2.1.2.3')
   s.require_path = 'lib'
   s.files = %w(MIT-LICENSE README Rakefile) + Dir.glob("{lib,spec,app,public,stubs}/**/*")
 end

@@ -1,16 +1,19 @@
 require File.dirname(__FILE__) + '/spec_helper'
 
-class Foo
-  cm {
-    bar      {'bar'}
-
-    foo(1)   {'foo1'}
-    foo('x') {'foox'}
-  }
-end
-
 describe "RRR" do
   describe "cm" do
+    before do
+      Object.send(:remove_const, 'Foo') rescue nil
+      class Foo
+        cm {
+          bar      {'bar'}
+
+          foo(1)   {'foo1'}
+          foo('x') {'foox'}
+        }
+      end
+    end
+
     context "when no arged method is defined" do
       it "adds class methods" do
         Foo.should respond_to(:bar)
