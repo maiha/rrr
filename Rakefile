@@ -6,7 +6,7 @@ AUTHOR = "maiha"
 EMAIL = "maiha@wota.jp"
 HOMEPAGE = "http://github.com/maiha/rrr"
 SUMMARY = "A ruby library for Ruby programming with RR that allows method overload"
-GEM_VERSION = "0.1.2"
+GEM_VERSION = "0.1.3"
 
 spec = Gem::Specification.new do |s|
   s.rubyforge_project = 'asakusa'
