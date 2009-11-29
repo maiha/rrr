@@ -20,16 +20,16 @@ Example
 
   require 'rrr'
 
-  class Foo
+  class User < ActiveRecord::Base
     cm do
-      foo('x') {"called with 'x'"}
-      foo(numeric) {|n| "called numeric(#{n})" }
+      by(numeric) {|id|   User.find(id) }
+      by(string)  {|name| User.find_by_name(name) }
     end
   end
 
-  Foo.foo('x')  # => "called with 'x'"
-  Foo.foo(1)    # => "called numeric(1)"
-  Foo.foo       # RR::Errors::DoubleNotFoundError
+  User.by('x')  # => called User.find_by_name('x')
+  User.by(1)    # => called User.find(1)
+  User.by       # RR::Errors::DoubleNotFoundError
 
 
 Copyright (c) 2009 maiha@wota.jp, released under the MIT license
